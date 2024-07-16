@@ -23,7 +23,7 @@ Retrieved chunks are reranked using the Cohere API to ensure the most relevant c
 
 The top-ranked chunks are passed to the Llama model (via Groq API) to generate a coherent and relevant response.
 
-This project's RAG is using semantic search using ChromaDB, I'll work on doing a combination of Hybrid Search and a HyDE following the best practices of RAG mentionned in the following paper: https://arxiv.org/html/2407.01219v1#:~:text=A%20typical%20RAG%20workflow%20usually,based%20on%20their%20relevance%20to
+This project's RAG is using semantic search using ChromaDB, I'll work on doing a combination of Hybrid Search and a HyDE following the best practices of RAG mentionned in the following paper: https://arxiv.org/html/2407.01219v1#:~:text=A%20typical%20RAG%20workflow%20usually,based%20on%20their%20relevance%20to[link]
 
 ![System Architecture Diagram](images/x1.png)
 
