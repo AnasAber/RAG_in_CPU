@@ -1,0 +1,17 @@
+pypdf
+langchain
+langchain-community
+chromadb
+numpy
+scikit-learn
+pytest
+python-dotenv
+transformers
+FlagEmbedding
+einops
+joblib
+torch
+onnx
+onnxruntime
+cohere
+groq

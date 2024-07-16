@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./FlagEmbedding-1.2.10"
+    ]
+}
