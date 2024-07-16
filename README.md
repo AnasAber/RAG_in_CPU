@@ -29,8 +29,12 @@ This project's RAG uses semantic search using ChromaDB, I'll work on doing a com
 
 If you encounter an error just hit me up, make a pull request, or report an issue, and I'll happily respond.
 
-### Next goal
+### Disadvantages
+- For cohere API, it's free for testing and unlimited, but not for production use as it's paid
 
+### Next goals
+
+- See if there's a fast and good alternative to cohere api
 - Evaluating the performance of this RAG pipeline
 - Implement a combination of Hybrid Search and HyDE
 - Add Repacking after Reranking, and before giving the prompt back to the model
