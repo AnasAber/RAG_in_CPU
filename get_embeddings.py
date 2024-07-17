@@ -38,18 +38,5 @@ __all__ = ['get_embeddings', 'get_embeddings_query']
 
 
 
-
-
-# def get_embeddings(texts):
-#     if isinstance(texts, str):
-#         texts = [texts]
-#     outputs = embedding_model(texts)
-#     embeddings = []
-#     for output in outputs:
-#         pooled_embedding = torch.mean(torch.tensor(output), dim=1)
-#         embeddings.append(pooled_embedding.detach().numpy())
-#     return np.array(embeddings)
-
-
 # (1, 8, 1024)
 

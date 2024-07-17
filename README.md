@@ -7,7 +7,10 @@ This project implements an Advanced RAG system designed to work on a regular PC 
 - Language Model (LLM): Leveraged Groq API with `llama3-70b-8192`.
 
 ## System Overview
-The RAG system follows these steps:
+
+![System Architecture Diagram](images/RAG_in_CPU.gif)
+
+The RAG system consists of the following components:
 
 #### Chunking and Embedding:
 
