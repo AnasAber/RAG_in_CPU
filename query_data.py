@@ -55,6 +55,7 @@ def format_context(context):
 
 def main():
 
+    # loading documents should be performed only once, ti will take a bit of time at first
     documents = load_documents()
     chunks = split_documents(documents)
     embed_and_store_documents(chunks)
@@ -134,8 +135,6 @@ def main():
 
 
     response = chat_completion.choices[0].message.content
-
-    print("#"*100)
 
     print("Response: ", response)
 

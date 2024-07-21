@@ -1,3 +1,18 @@
+**llama3-70b-8192**
+
+Response:  The slammer! You can enter prison in Monopoly in three ways: 
+
+1. Landing on a space marked "Go to Jail" - it's like getting a direct summons from the warden!
+2. Drawing a card that says "Go to Jail" - bad luck, buddy!
+3. Throwing doubles three times in a row - you're on a roll, but not in a good way!
+
+Remember, when you're sent to Jail, your turn ends, and you won't collect your $200 salary that round. But if you land on the "Jail" space through normal 
+gameplay, you're just "Visiting" and won't face any penalties.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**Phi-3-mini-4k-instruct**
+
 The rules regarding going to 'Jail' in Monopoly involve several scenarios leading to imprisonment during one’s turn.
 Here is an outline according to the provided text:
 
