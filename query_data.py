@@ -55,12 +55,20 @@ def format_context(context):
 
 def main():
 
-    # loading documents should be performed only once, ti will take a bit of time at first
+    """
+    loading documents should be performed only once, ti will take a bit of time at first.
+    You can comment them out as chromaDB has the infos already
+    
+    """
+
     documents = load_documents()
     chunks = split_documents(documents)
     embed_and_store_documents(chunks)
     print("Documents loaded, split, and stored")
     
+
+
+
     query = "How to enter prison in Monopoly?"
 
     PROMPT_TEMPLATE = """
