@@ -8,7 +8,7 @@ This project implements an Advanced RAG system designed to work on a regular PC 
 
 ## System Overview
 
-![System Architecture Diagram](images/RAG_in_CPU.gif)
+![System Architecture Diagram](src/images/RAG_in_CPU.gif)
 
 The RAG system consists of the following components:
 
@@ -40,7 +40,7 @@ The reason why I'm using a virtual environment is to avoid any conflicts with th
 
 This project's RAG uses semantic search using ChromaDB, I'll work on doing a combination of Hybrid Search and a HyDE following the best practices of RAG mentioned in the following paper: [link](https://arxiv.org/html/2407.01219v1#:~:text=A%20typical%20RAG%20workflow%20usually,based%20on%20their%20relevance%20to)
 
-![System Architecture Diagram](images/x1.png)
+![System Architecture Diagram](src/images/x1.png)
 
 If you encounter an error just hit me up, make a pull request, or report an issue, and I'll happily respond.
 
