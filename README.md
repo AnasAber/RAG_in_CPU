@@ -33,17 +33,22 @@ The top-ranked chunks are passed to the Llama model (via Groq API) to generate a
 git clone https://github.com/AnasAber/RAG_in_CPU.git
 ```
 
-2. Activate the virtual environement:
-for Windows:
+2. Install the dependencies
 ```bash
-.\rag\Scripts\activate
+pip install -r requirements.txt
 ```
-for MacOS/Linux:
+3. Set up the setup.py file
 ```bash
-source venv/bin/activate
+py setup.py install
+```
+4. Set up the environment variables
+```bash
+export GROQ_API_KEY="your_groq_api_key"
+export COHERE_API_KEY="your_cohere_api_key"
+export HUGGINGFACE_API_KEY="your_hugging
 ```
  
-3. Run the `app.py` file
+5. Run the `app.py` file
 ```bash
 python app.py
 ```
