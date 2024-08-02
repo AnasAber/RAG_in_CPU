@@ -1,4 +1,5 @@
 .env
 FlagEmbedding-1.2.10/
-rag/
 testing.py
+t.py
+s.txt

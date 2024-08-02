@@ -33,10 +33,5 @@ def get_embeddings(text=None):
     embeddings = HuggingFaceEmbeddings(model_name="nomic-ai/nomic-embed-text-v1")
     return embeddings
 
-__all__ = ['get_embeddings', 'get_embeddings_query']
-
-
-
-
 # (1, 8, 1024)
 

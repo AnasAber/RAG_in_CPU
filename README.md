@@ -26,6 +26,18 @@ Retrieved chunks are reranked using the Cohere API to ensure the most relevant c
 
 The top-ranked chunks are passed to the Llama model (via Groq API) to generate a coherent and relevant response.
 
+### How to start
+
+1. Clone the repository
+    `git clone https://github.com/AnasAber/RAG_in_CPU.git`
+2. Activate the virtual environement:
+    for Windows: `./rag/Scripts/activate`
+    for MacOS/Linux: `source venv/bin/activate` 
+3. Run the `app.py` file
+
+The reason why I'm using a virtual environment is to avoid any conflicts with the dependencies (I had to manually change things in configuration files), and to make sure that the project runs smoothly.
+
+
 This project's RAG uses semantic search using ChromaDB, I'll work on doing a combination of Hybrid Search and a HyDE following the best practices of RAG mentioned in the following paper: [link](https://arxiv.org/html/2407.01219v1#:~:text=A%20typical%20RAG%20workflow%20usually,based%20on%20their%20relevance%20to)
 
 ![System Architecture Diagram](images/x1.png)

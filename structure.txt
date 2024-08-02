@@ -1,0 +1,26 @@
+NLP/
+├── data/
+│   ├── processed/                   # Processed data and embeddings
+│   ├── raw/                         # RAW data
+│   ├── process_data.py              # Functions to process data
+├── src/
+│   ├── __init__.py
+│   ├── data_processing/
+│   │   ├── __init__.py
+│   │   ├── get_embeddings.py   # Functions to generate embeddings
+│   ├── database/
+│   │   ├── __init__.py
+│   │   ├── chromadb_search_functions.py       # chromadb functions to retrieved responses
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── models.py                # All the declared models (❌)
+│   │   ├── main_reasoning.py        # Main project  (Not yet set up ❌)
+│   ├── app.py                       # Main application logic
+├── tests/ 
+│   ├── __init__.py
+│   ├── embedding_model_choice.py      # Unit tests for the right embedding model
+├── requirements.txt                 # Project dependencies
+├── README.md                        # Project overview and instructions
+├── setup.py                         # Package installation script
+├── structure.txt                         # Struture of the project
+└── .gitignore                       # Git ignore file

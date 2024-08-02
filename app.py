@@ -1,13 +1,9 @@
-import get_embeddings
-import chroma_search_functions as csf
+import src.data_processing.get_embeddings
+from data.process_data import load_documents, embed_and_store_documents, split_documents
 from langchain.prompts import ChatPromptTemplate
-from transformers import pipeline
-from langchain_community.vectorstores import Chroma
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-import transformers
-from langchain.llms import HuggingFacePipeline
 from groq import Groq
 import os
+from src.database.chroma_search_functions import get_relevant_data
 
 """
     Importing the functions and setting up the environment variables
@@ -15,9 +11,7 @@ import os
 """
 
 CHROMA_PATH = "chroma/"
-DATA_PATH = "data"
-
-(load_documents, split_documents, embed_and_store_documents, retrieve_documents, get_relevant_data, add_to_chroma_db, get_chroma_db) = csf.main()
+DATA_PATH = "data/raw"
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY"),
@@ -26,6 +20,11 @@ client = Groq(
 
 """
 Again, if we want to load a huggingFace model and tokenizer, we can do it like this:
+
+from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import transformers
+from langchain.llms import HuggingFacePipeline
 
 model_name = "microsoft/Phi-3-mini-4k-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -53,6 +52,24 @@ GemmaLLM = HuggingFacePipeline(pipeline=text_generation_pipeline)
 def format_context(context):
     return "\n\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(context)])
 
+def check_and_process_documents():
+    path = "data/processed/chroma"
+    print(f"Checking if path exists: {path}")
+    
+    if not os.path.exists(path):
+        print(f"Path does not exist: {path}")
+        
+        documents = load_documents()
+        print("Documents loaded")
+        
+        chunks = split_documents(documents)
+        print("Documents split into chunks")
+        
+        embed_and_store_documents(chunks)
+        print("Documents embedded and stored")
+    else:
+        print(f"Path already exists: {path}")
+
 def main():
 
     """
@@ -60,11 +77,13 @@ def main():
     You can comment them out as chromaDB has the infos already
     
     """
+    check_and_process_documents()
 
-    documents = load_documents()
-    chunks = split_documents(documents)
-    embed_and_store_documents(chunks)
-    print("Documents loaded, split, and stored")
+    if not os.path.exists("data/processed/chroma"):
+        documents = load_documents()
+        chunks = split_documents(documents)
+        embed_and_store_documents(chunks)
+        print("Documents loaded, split, and stored")
     
 
 
