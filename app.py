@@ -10,9 +10,6 @@ from src.database.chroma_search_functions import get_relevant_data
 
 """
 
-CHROMA_PATH = "chroma/"
-DATA_PATH = "data/raw"
-
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY"),
 )
