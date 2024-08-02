@@ -29,11 +29,24 @@ The top-ranked chunks are passed to the Llama model (via Groq API) to generate a
 ### How to start
 
 1. Clone the repository
-    `git clone https://github.com/AnasAber/RAG_in_CPU.git`
+```bash
+git clone https://github.com/AnasAber/RAG_in_CPU.git
+```
+
 2. Activate the virtual environement:
-    for Windows: `./rag/Scripts/activate`
-    for MacOS/Linux: `source venv/bin/activate` 
+for Windows:
+```bash
+.\rag\Scripts\activate
+```
+for MacOS/Linux:
+```bash
+source venv/bin/activate
+```
+ 
 3. Run the `app.py` file
+```bash
+python app.py
+```
 
 The reason why I'm using a virtual environment is to avoid any conflicts with the dependencies (I had to manually change things in configuration files), and to make sure that the project runs smoothly.
 
