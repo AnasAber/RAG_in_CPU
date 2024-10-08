@@ -5,3 +5,5 @@ t.py
 rag/
 DockerFile
 s.txt
+__pycache__
+

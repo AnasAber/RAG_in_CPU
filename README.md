@@ -43,9 +43,9 @@ py setup.py install
 ```
 4. Set up the environment variables
 ```bash
-export GROQ_API_KEY="your_groq_api_key"
-export COHERE_API_KEY="your_cohere_api_key"
-export HUGGINGFACE_API_KEY="your_hugging
+export GROQ_API_KEY="your_groq_key"
+export COHERE_API_KEY="your_cohere_key"
+export HUGGINGFACE_API_KEY="your_huggingFace_key"
 ```
  
 5. Run the `app.py` file

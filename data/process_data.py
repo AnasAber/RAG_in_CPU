@@ -2,19 +2,7 @@ from langchain_community.vectorstores import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.schema.document import Document
-import os
 from src.data_processing.get_embeddings import get_embeddings
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-"""
-    Initializating the APIs and setting up the environment variables
-
-"""
-
-api_key = os.getenv("COHERE_API_KEY")
 
 CHROMA_PATH = "data/processed/chroma"
 DATA_PATH = "data"

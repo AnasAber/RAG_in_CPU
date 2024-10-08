@@ -1,30 +1,14 @@
-from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFDirectoryLoader
-from langchain.schema.document import Document
+# from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain_community.document_loaders import PyPDFDirectoryLoader
+# from langchain.schema.document import Document
 # from FlagEmbedding.flag_models import FlagModel
 # from FlagEmbedding.flag_reranker import FlagReranker
+from langchain_community.vectorstores import Chroma
 from src.data_processing.get_embeddings import get_embeddings
-import uuid
-import os
-from dotenv import load_dotenv
-import cohere
+from src.models.models import cohere_reranker
 
-load_dotenv()
-
-"""
-    Initializating the APIs and setting up the environment variables
-
-"""
-
-api_key = os.getenv("COHERE_API_KEY")
 
 CHROMA_PATH = "data/processed/chroma"
-
-# init client
-co = cohere.Client(api_key)
-
-
 
 
 # load the data
@@ -67,6 +51,7 @@ def format_context(context):
     return "\n\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(context)])
 
 
+
 def reranked_documents(query, long_string, top_k=3):
     # Split the long string into individual chunks using '\n\n---\n\n' as the separator
     chunks = long_string.split("\n\n---\n\n")
@@ -77,22 +62,19 @@ def reranked_documents(query, long_string, top_k=3):
     if not valid_chunks:
         print("No valid chunks to rerank.")
         return []
-
-    # Use the cohere rerank API
-    rerank_docs = co.rerank(
-        query=query,
-        documents=valid_chunks,
-        top_n=top_k,
-        model="rerank-english-v2.0"
-    )
+    
+    # cohere reranker
+    rerank_docs = cohere_reranker(query, valid_chunks, top_k)
 
     print("#"*100 + "\n\n")
+
     # Extract and print reranked chunks using the indices from the rerank response
     reranked_chunks = [valid_chunks[result.index] for result in rerank_docs.results]
     print("Reranked Chunks:\n\n", format_context(reranked_chunks))
 
     return reranked_chunks
     
+
 
 def get_relevant_data(query):
     retrieved_chunks = retrieve_documents(query)
