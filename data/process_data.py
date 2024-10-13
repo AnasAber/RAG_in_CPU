@@ -1,8 +1,8 @@
-from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFDirectoryLoader
-from langchain.schema.document import Document
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from src.data_processing.get_embeddings import get_embeddings
+from langchain_community.vectorstores import Chroma
+from langchain.schema.document import Document
 
 CHROMA_PATH = "data/processed/chroma"
 DATA_PATH = "data"
