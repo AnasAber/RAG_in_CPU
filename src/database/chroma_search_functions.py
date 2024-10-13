@@ -3,8 +3,8 @@
 # from langchain.schema.document import Document
 # from FlagEmbedding.flag_models import FlagModel
 # from FlagEmbedding.flag_reranker import FlagReranker
-from langchain_community.vectorstores import Chroma
 from src.data_processing.get_embeddings import get_embeddings
+from langchain_community.vectorstores import Chroma
 from src.models.models import cohere_reranker
 
 
