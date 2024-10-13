@@ -5,12 +5,6 @@ from src.models.models import llama_groq
 import os
 
 
-def format_context(context):
-    return "\n\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(context)])
-
-
-import os
-
 def check_and_process_documents():
     path = "data/processed/chroma/"
     excluded_file = "chroma.sqlite3"  # Specify the file to exclude
@@ -37,7 +31,6 @@ def check_and_process_documents():
     else:
         print(f"Path already exists and contains files other than {excluded_file}")
         # Continue with your existing logic here if needed
-
 
 
 

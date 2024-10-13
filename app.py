@@ -1,9 +1,9 @@
+from src.database.chroma_search_functions import close_chroma_db_connection
+from src.data_processing.cache_functions import redis_client
 from werkzeug.utils import secure_filename
 from flask import Flask, request, jsonify
 from src.main_reasoning import reasoning
-from src.data_processing.cache_functions import redis_client
 from flask_cors import CORS
-from src.database.chroma_search_functions import close_chroma_db_connection
 import shutil
 import time
 import os
@@ -63,6 +63,7 @@ def handle_upload():
 @app.route('/clear_cv_data', methods=['POST'])
 def clear_cv_data():
     chroma_folder = './data/processed/chroma'
+    redis_client.flushdb()
 
     try:
 

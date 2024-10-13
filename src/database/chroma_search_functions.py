@@ -7,7 +7,7 @@ from src.data_processing.get_embeddings import get_embeddings
 from src.data_processing.cache_functions import get_cached_query_result, retrieve_or_initialize_cache, store_in_cache
 from langchain_community.vectorstores import Chroma
 from src.models.models import cohere_reranker
-
+import sqlite3
 
 CHROMA_PATH = "data/processed/chroma"
 
@@ -101,11 +101,18 @@ def get_relevant_data(query):
 def close_chroma_db_connection():
     try:
         chroma_db_connection = get_chroma_db()
-        # Close the database connection if it's open (example)
         if chroma_db_connection is not None:
             chroma_db_connection.delete_collection()
+            chroma_db_connection.persist()
+            chroma_db_connection = None
+
+        # Forcefully close SQLite connection
+        conn = sqlite3.connect('./data/processed/chroma/chroma.sqlite3')
+        conn.close()
+        print("ChromaDB connection closed successfully.")
     except Exception as e:
         print(f"Error closing ChromaDB connection: {e}")
+
 
 
 

@@ -74,7 +74,7 @@ const RAGInterface = () => {
         clearInterval(typingInterval);
         setIsTyping(false);
       }
-    }, 15); // Adjust typing speed by changing the interval time
+    }, 10); // Adjust typing speed by changing the interval time
   };
 
   const handleNewCV = async () => {
@@ -128,11 +128,11 @@ const RAGInterface = () => {
               </div>
             </div>
           ))}
-          {isTyping && (
+          {/* {isTyping && (
             <div className="flex justify-start mb-2">
               <div className="p-2 rounded-lg bg-gray-200">Typing...</div>
             </div>
-          )}
+          )} */}
         </CardContent>
         <div className="p-4 border-t">
           <div className="flex items-center">
