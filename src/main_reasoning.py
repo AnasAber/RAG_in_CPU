@@ -9,12 +9,22 @@ def format_context(context):
     return "\n\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(context)])
 
 
+import os
+
 def check_and_process_documents():
-    path = "data/processed/chroma"
+    path = "data/processed/chroma/"
+    excluded_file = "chroma.sqlite3"  # Specify the file to exclude
     print(f"Checking if path exists: {path}")
     
-    if not os.path.exists(path):
-        print(f"Path does not exist: {path}")
+    def is_only_excluded_file_present():
+        # Get the list of files/folders in the directory excluding hidden files (optional)
+        contents = [f for f in os.listdir(path) if not f.startswith('.')]
+        
+        # If there's only one file and it's chroma.sqlite3, return True
+        return len(contents) == 1 and contents[0] == excluded_file
+    
+    if not os.path.exists(path) or is_only_excluded_file_present():
+        print(f"Path does not exist or only {excluded_file} is present.")
         
         documents = load_documents()
         print("Documents loaded")
@@ -25,7 +35,10 @@ def check_and_process_documents():
         embed_and_store_documents(chunks)
         print("Documents embedded and stored")
     else:
-        print(f"Path already exists: {path}")
+        print(f"Path already exists and contains files other than {excluded_file}")
+        # Continue with your existing logic here if needed
+
+
 
 
 
