@@ -74,7 +74,7 @@ const RAGInterface = () => {
         clearInterval(typingInterval);
         setIsTyping(false);
       }
-    }, 10); // Adjust typing speed by changing the interval time
+    }, 15); // Adjust typing speed by changing the interval time
   };
 
   const handleNewCV = async () => {
