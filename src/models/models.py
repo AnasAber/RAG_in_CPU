@@ -70,6 +70,37 @@ def llama_groq(query, prompt):
     return response
 
 
+def llama_groq_structured(prompt):
+    chat_completion = client.chat.completions.create(
+        #
+        # Required parameters
+        #
+        messages=[
+                # Set an optional system message. This sets the behavior of the
+                # assistant and can be used to provide specific instructions for
+                # how it should behave throughout the conversation.
+                {
+                    "role": "system",
+                    "content": prompt
+                },
+            ],
+
+            model="llama3-70b-8192",
+
+            temperature=0.5,
+
+            max_tokens=1024,
+
+            top_p=1,
+
+            stop=None,
+
+            stream=False,
+        )
+
+    response = chat_completion.choices[0].message.content
+    return response
+
 def cohere_reranker(query, valid_chunks, top_k=3):
     # Use the cohere rerank API
     rerank_docs = co.rerank(
