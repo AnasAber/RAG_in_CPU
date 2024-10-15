@@ -2,9 +2,9 @@
 # from langchain_community.document_loaders import PyPDFDirectoryLoader
 # from langchain.schema.document import Document
 # from FlagEmbedding.flag_models import FlagModel
-# from FlagEmbedding.flag_reranker import FlagReranker
-from src.data_processing.get_embeddings import get_embeddings
+# from FlagEmbedding.flag_reranker import FlagReranker\
 from src.data_processing.cache_functions import get_cached_query_result, retrieve_or_initialize_cache, store_in_cache
+from src.data_processing.get_embeddings import get_embeddings
 from langchain_community.vectorstores import Chroma
 from src.models.models import cohere_reranker
 import sqlite3
@@ -15,7 +15,6 @@ CHROMA_PATH = "data/processed/chroma"
 # load the data
 def get_chroma_db(get_embeddings=get_embeddings):
     return Chroma(persist_directory=CHROMA_PATH, embedding_function=get_embeddings())
-
 
 
 def retrieve_documents(query, top_k=8):

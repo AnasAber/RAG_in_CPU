@@ -1,13 +1,10 @@
 # Loading our model and making a get_embeddings function
-
-import os
-import numpy as np
-from transformers import AutoModel, AutoTokenizer, pipeline
-from transformers import BertTokenizer, BertModel
-from dotenv import load_dotenv
-import torch
-from langchain.embeddings.base import Embeddings
+# from transformers import AutoModel, AutoTokenizer, pipeline
+# from transformers import BertTokenizer, BertModel
+# from langchain.embeddings.base import Embeddings
 from langchain.embeddings import HuggingFaceEmbeddings
+from dotenv import load_dotenv
+import os
 
         
 load_dotenv()

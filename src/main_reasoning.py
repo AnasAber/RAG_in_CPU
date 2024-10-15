@@ -1,6 +1,6 @@
 from data.process_data import load_documents, embed_and_store_documents, split_documents
-from langchain.prompts import ChatPromptTemplate
 from src.database.chroma_search_functions import get_relevant_data
+from langchain.prompts import ChatPromptTemplate
 from src.models.models import llama_groq
 import os
 
