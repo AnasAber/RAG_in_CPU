@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)  # This allows all origins
 
 # Define the upload folder
-UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'data', 'test')
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'data', 'raw')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Ensure the upload folder exists
@@ -23,7 +23,7 @@ Answer this question in a clear, unboring matter, based on the following context
 {context}
 -----
 Answer this question based on the above context, without citing the context in your answer:
-{question}
+{question};/
 Answer:
 """
 
@@ -77,9 +77,6 @@ def clear_cv_data():
                     os.unlink(file_path)
                 elif os.path.isdir(file_path):
                     shutil.rmtree(file_path)
-        
-        # Clear Redis cache (flush the Redis database)
-        redis_client.flushdb()
         return jsonify({"message": "ChromaDB data cleared successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500

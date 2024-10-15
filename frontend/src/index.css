@@ -12,6 +12,31 @@ code {
     monospace;
 }
 
+/* styles.css */
+.bg-light-beige {
+  background-color: #F7F5F2;
+}
+
+.bg-soft-gray {
+  background-color: #F0F0F0;
+}
+
+.bg-muted-teal {
+  background-color: #88B8A1;
+}
+
+.bg-light-gray {
+  background-color: #E4E7EB;
+}
+
+.bg-soft-red {
+  background-color: #D95F5F;
+}
+
+.text-dark-gray {
+  color: #333333;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
